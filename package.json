@@ -4,8 +4,8 @@
   "description": "React-Redux Todos example",
   "scripts": {
     "start": "node server.js",
-    "test": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register --require ./examples/todos/test/setup.js",
-    "test:watch": "npm test ./examples/todos/test --watch"
+    "test": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register",
+    "test:watch": "npm test ./test --watch"
   },
   "repository": {
     "type": "git",
