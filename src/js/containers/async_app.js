@@ -35,20 +35,10 @@ AsyncApp.propTypes = {
   dispatch: PropTypes.func.isRequired
 }
 
-function mapStateToProps(state) {
-  const {
-    isFetching,
-    lastUpdated,
-    genres
-  } = {
-    isFetching: state.isFetching,
-    lastUpdated,
-    genres: state.genres
-  }
-
+const mapStateToProps = state => {
   return {
-    genres,
-    isFetching
+    genres: state.genres,
+    isFetching: state.isFetching
   }
 }
 
