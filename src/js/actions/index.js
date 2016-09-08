@@ -2,6 +2,7 @@ import fetch from 'isomorphic-fetch'
 
 export const RECEIVE_GENRES = 'RECEIVE_GENRES'
 export const REQUEST_GENRES = 'REQUEST_GENRES'
+export const NYT_URL = 'http://api.nytimes.com/svc/books/v3/lists/names.json?api-key=sample-key'
 
 export const request_genres = () => {
   return {
@@ -12,14 +13,13 @@ export const request_genres = () => {
 export const fetch_genres = () => {
   return dispatch => {
     dispatch(request_genres)
-    return fetch('http://api.nytimes.com/svc/books/v3/lists/names.json?api-key=sample-key').then(response => response.json()).then(json => dispatch(receive_genres(json)))
+    return fetch(NYT_URL).then(response => response.json()).then(json => dispatch(receive_genres(json)))
   }
 }
 
-function receive_genres(json) {
-  console.log(json)
+export const receive_genres = json => {
   return {
     type: RECEIVE_GENRES,
-    genres: json.data.children.map(child => child.data)
+    genres: json.results
   }
 }
