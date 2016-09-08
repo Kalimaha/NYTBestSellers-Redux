@@ -1,23 +1,9 @@
+import 'babel-polyfill'
 import React from 'react'
-import ReactDOM from 'react-dom'
-import { createStore } from 'redux'
-import Counter from './src/main/js/components/counter'
-import counter from './src/main/js/reducers/index'
+import { render } from 'react-dom'
+import Root from './src/js/containers/root'
 
-
-const store = createStore(counter)
-const placeholder = document.getElementById('placeholder')
-
-function render() {
-  ReactDOM.render(
-    <Counter
-      currentValue = { store.getState() }
-      onIncrement = { () => store.dispatch({ type: 'INCREASE' }) }
-      onDecrement = { () => store.dispatch({ type: 'DECREASE' }) }
-    />,
-    placeholder
-  )
-}
-
-render()
-store.subscribe(render)
+render(
+  <Root />,
+  document.getElementById('placeholder')
+)

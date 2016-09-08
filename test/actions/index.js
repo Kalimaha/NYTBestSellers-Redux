@@ -10,7 +10,7 @@ describe('NYT Best Sellers actions', () => {
   })
 
   it('fetch_genres should create a REQUEST_GENRES action', () => {
-    console.log(actions.fetch_genres())
+    // console.log(actions.fetch_genres())
     // expect(actions.fetch_genres()).toEqual({
     //   type: 'REQUEST_GENRES'
     // })
