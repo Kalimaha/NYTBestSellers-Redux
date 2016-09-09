@@ -17,12 +17,16 @@ class AsyncApp extends Component {
     const { genres, isFetching } = this.props
 
     return (
-      <div>
-        <Picker options={ genres.map(genre => genre.display_name) } />
-        <hr></hr>
-        { isFetching && genres.length === 0 && <h4>Loading...</h4> }
-        { !isFetching && genres.length === 0 && <h4>Empty.</h4> }
-        { genres.length > 0 && <h4>Genres loaded</h4> }
+      <div className="row">
+        <div className="col-lg-4">&nbsp;</div>
+        <div className="col-lg-4">
+          <Picker options={ genres.map(genre => genre.display_name) } />
+          <hr></hr>
+          { isFetching && genres.length === 0 && <h4>Loading...</h4> }
+          { !isFetching && genres.length === 0 && <h4>Empty.</h4> }
+          { genres.length > 0 && <h4>Genres loaded</h4> }
+        </div>
+        <div className="col-lg-4">&nbsp;</div>
       </div>
     )
   }
