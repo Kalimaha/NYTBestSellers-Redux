@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch'
+import { getGenres } from '../repositories/genres'
 
 export const RECEIVE_GENRES = 'RECEIVE_GENRES'
 export const REQUEST_GENRES = 'REQUEST_GENRES'
