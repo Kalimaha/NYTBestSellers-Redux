@@ -13,8 +13,16 @@ export const request_genres = () => {
 
 export const fetch_genres = () => {
   return dispatch => {
-    dispatch(request_genres)
-    return fetch(NYT_URL).then(response => response.json()).then(json => dispatch(receive_genres(json)))
+    dispatch({ type: 'FETCH_GENRES_REQUEST' })
+    return getGenres().then(
+      genres => {
+        dispatch({ type: 'FETCH_GENRES_SUCCESS', genres })
+      },
+      () => {
+        const errors = 'Something went wrong dude.'
+        dispatch({ type: 'FETCH_GENRES_FAILURE', errors })
+      }
+    )
   }
 }
 
