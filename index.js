@@ -3,13 +3,13 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import configureStore from './src/js/store/configure_store'
-import AsyncApp from './src/js/containers/async_app'
+import GenresContainer from './src/js/containers/genres_container'
 
 const store = configureStore()
 
 render(
   <Provider store={store}>
-    <AsyncApp />
+    <GenresContainer />
   </Provider>,
   document.getElementById('placeholder')
 )

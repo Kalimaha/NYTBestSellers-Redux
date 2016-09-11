@@ -11,19 +11,20 @@ export const request_genres = () => {
   }
 }
 
-export const fetch_genres = () => {
-  return dispatch => {
-    dispatch({ type: 'FETCH_GENRES_REQUEST' })
-    return getGenres().then(
-      genres => {
-        dispatch({ type: 'FETCH_GENRES_SUCCESS', genres })
-      },
-      () => {
-        const errors = 'Something went wrong dude.'
-        dispatch({ type: 'FETCH_GENRES_FAILURE', errors })
-      }
-    )
-  }
+export const fetch_genres = () => dispatch => {
+  dispatch({ type: 'FETCH_GENRES_REQUEST' })
+
+  return getGenres().then(
+
+    response => {
+      dispatch({ type: 'FETCH_GENRES_SUCCESS', response })
+    },
+
+    () => {
+      const errors = 'Something went wrong dude.'
+      dispatch({ type: 'FETCH_GENRES_FAILURE', errors })
+    }
+  )
 }
 
 export const receive_genres = json => {

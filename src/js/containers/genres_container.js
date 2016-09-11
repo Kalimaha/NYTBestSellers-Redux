@@ -1,8 +1,6 @@
 import { connect } from 'react-redux'
 import { fetch_genres } from '../actions/index'
-import Picker from '../components/picker'
-
-class PickerContainer extends Component {
+import GenresSelector from '../components/genres_selector'
 
 function mapStateToProps(state) {
   return {
@@ -13,10 +11,10 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchGenres: () => { dispatch(fetchGenres()) }
+    fetch_genres: () => { dispatch(fetch_genres()) }
   }
 }
 
-const ConnectedPicker = connect(mapStateToProps, mapDispatchToProps)(Picker)
+const ConnectedGenresSelector = connect(mapStateToProps, mapDispatchToProps)(GenresSelector)
 
-export default ConnectedApp
+export default ConnectedGenresSelector
